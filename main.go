@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", HelloServer)
+	http.HandleFunc("/hello", HelloServer)
 	http.HandleFunc("/goodbye", GoodbyeServer)
 	http.ListenAndServe(":8080", nil)
 }
