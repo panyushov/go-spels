@@ -19,5 +19,8 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 }
 
 func GoodbyeServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Goodbye, %s!", r.URL.Path[1:])
+	_, err := fmt.Fprintf(w, "Goodbye, %s!", r.URL.Path[1:])
+	if err != nil {
+		panic(err)
+	}
 }
