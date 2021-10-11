@@ -12,7 +12,10 @@ func main() {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
+	_, err := fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
+	if err != nil {
+		panic(err)
+	}
 }
 
 func GoodbyeServer(w http.ResponseWriter, r *http.Request) {
